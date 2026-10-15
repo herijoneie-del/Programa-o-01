@@ -2,18 +2,13 @@
 Escrever uma aplicação que recebe 2 numeros de utilzador 
 E devolve a soma
 '''
-nome = 'Jonny'
-print("olá " + nome)
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
-print("olá, escreve dois numeros")
+print('Ola, escreva dois numeros;')
 
-numero1 = int(input())
-numero2 = int(input())
+numero_1 = int(input('número 1;'))
+numero_2 = int(input('número 2;'))
+resultado = numero_1 + numero_2
 
-resultado = numero1 + numero2
-
-print(f"soma: {numero1} + {numero2} = {numero1+int(numero2)}")
-
-
-
-
+print ('a soma dos dois números recebidos é', resultado)
