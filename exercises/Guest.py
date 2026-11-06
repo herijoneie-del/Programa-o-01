@@ -1,4 +1,4 @@
-import random
+import random, math
 lmin,lmax = 1,1000
 numbertoguess = random.randint(lmin,lmax)  
 
@@ -12,26 +12,32 @@ tentativas = []
 
 while (guess != numbertoguess and guess != 'end'):
     guess = input(f"adivinha o numero entre {lmin} e {lmax}: -->")
+    guess = guess.strip()
 
-    print(f'valor inserido: {guess}') 
-    if (guess.isnumeric()):
+    try:
+        tentativas.append(guess) #adiciona a ultima tentativa ao fim da linha
         guess = int(guess)
-        print(f"numero inserido: {guess}")
         if (guess > numbertoguess):
             print("mais baixo")
         elif (guess < numbertoguess):
             print("mais alto")
         else:
             print("acertou")   
+       
+        
+    except Exception as e:
+        if guess != 'end':
+            print(f"'{guess}' não é um numero valido: {type(e).__name__} - {e}")
+    finally:
         attempt += 1#equivale a attemp = attemp + 1
-        tentativas.append(guess) #adiciona a ultima tentativa ao fim da linha
-    elif (guess != 'end'):
-        print(f"'{guess}' não é um numero inteiro")
+        print(f'valor inserido "{guess}" à {attempt}ª tentativa')
+#fim do while
 
 if (guess == 'end'):
     print(f'desitiu ao fim de {attempt} tentativas')
 else:
     print(f'acertou no numero {numbertoguess} em {attempt} tentativas')
     print(tentativas)
-    for tentativas in tentativas:
-        print(tentativas)
+for tentativas in tentativas:
+    print(tentativas)
+
