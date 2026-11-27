@@ -1,5 +1,5 @@
 import json
-import JSONFiles
+#import JSONFiles
 from pathlib import Path
 
 # O JSON é um formato padrão de intercâmbio de dados, baseado em texto, leve e fácil de ler e escrever
@@ -28,8 +28,8 @@ myMenu = make_menu()
 myList = ['item1', 'item2', 'item3']
 myMenu['extra']= myList
 
-path = 'C:/WorkingArea/Developer/Python/ficheiros/menu.json'
-
+path = '/workspaces/Programa-o-01/ficheiros/menu.json'
+    
 with open(path, "w", encoding="utf-8") as write_file:
     json.dump(myMenu, write_file, indent=4)
 
